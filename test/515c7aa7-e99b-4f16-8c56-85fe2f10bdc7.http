@@ -1,0 +1,10 @@
+
+### 515c7aa7-e99b-4f16-8c56-85fe2f10bdc7
+GET https://player.vimeo.com/video/713179128
+###
+
+# File đầu tiên tải xuống - playlist.json
+GET https://vod-adaptive-ak.vimeocdn.com/exp=1748765659~acl=%2F515c7aa7-e99b-4f16-8c56-85fe2f10bdc7%2F%2A~hmac=94aba50993788e3aeb0733e0f264052cb7957a67d2503be12ab6e072f2c64353/515c7aa7-e99b-4f16-8c56-85fe2f10bdc7/v2/playlist/av/primary/prot/cXNyPTE/playlist.json?omit=av1-hevc&pathsig=8c953e4f~pV8o72cHIR1_KqkDDRC_zxO9L9zCbtDlQkBdK9d8wDY&qsr=1&r=dXM%3D&rh=28Enmi
+
+#
+GET https://vod-adaptive-ak.vimeocdn.com/exp=1748765659~acl=%2F515c7aa7-e99b-4f16-8c56-85fe2f10bdc7%2F%2A~hmac=94aba50993788e3aeb0733e0f264052cb7957a67d2503be12ab6e072f2c64353/515c7aa7-e99b-4f16-8c56-85fe2f10bdc7/v2/range/prot/cmFuZ2U9MjE4Ny00ODA1OA/avf/c0fb1cdf-8b6a-4409-b9ca-a85a6eb4c31b.mp4?pathsig=8c953e4f~fxKmnZneJgvu7WYpZb4QYvjALBMbf4XuDRA649s0_V4&r=dXM%3D&range=2187-48058

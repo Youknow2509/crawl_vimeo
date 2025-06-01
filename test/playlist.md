@@ -1,7 +1,4 @@
-Youknow2509: phân tích dữ liệu file playlist.json của tôi
-
-GitHub Copilot: # Phân tích file playlist.json
-
+# Thông tin chi tiết về video streaming - playlist_a0a64e92-89db-409a-9a73-caceb4fad596
 File playlist.json chứa thông tin chi tiết về một video streaming sử dụng công nghệ DASH (Dynamic Adaptive Streaming over HTTP), cho phép người dùng xem video với nhiều mức chất lượng khác nhau tùy theo băng thông mạng.
 
 ## Thông tin chung
