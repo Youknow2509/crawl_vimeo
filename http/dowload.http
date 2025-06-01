@@ -1,0 +1,25 @@
+GET https://vod-adaptive-ak.vimeocdn.com/exp=1748754190~acl=%2Fa0a64e92-89db-409a-9a73-caceb4fad596%2F%2A~hmac=130a28effc947a5be3a4abdaf29d27095cd05f28ff0cc6a32ec0eb05e020fc2c/a0a64e92-89db-409a-9a73-caceb4fad596/v2/range/prot/cmFuZ2U9MjMzMC01MDc0Nw/avf/6efd01c2-79b4-490a-adbd-c1e72c6c6359.mp4?pathsig=8c953e4f~SktBJI0FQGNV5FQMJzq7k1CZlfQcYaRTlfBfUAxfJQ4&r=dXM%3D&range=2330-50747
+###
+
+GET https://vod-adaptive-ak.vimeocdn.com/exp=1748754190~acl=%2Fa0a64e92-89db-409a-9a73-caceb4fad596%2F%2A~hmac=130a28effc947a5be3a4abdaf29d27095cd05f28ff0cc6a32ec0eb05e020fc2c/a0a64e92-89db-409a-9a73-caceb4fad596/v2/range/prot/cmFuZ2U9MjQ3NC0xNjIwNDQ/avf/5d69a0fe-e87f-45b8-bf54-4194037d03ba.mp4?pathsig=8c953e4f~8JykyLT0qp5gQisirwcEFT160LXWqh9x9V-L1ObAeAc&r=dXMtZWFzdDE%3D&range=2474-162044
+
+GET https://vod-adaptive-ak.vimeocdn.com/exp=1748754190~acl=%2Fa0a64e92-89db-409a-9a73-caceb4fad596%2F%2A~hmac=130a28effc947a5be3a4abdaf29d27095cd05f28ff0cc6a32ec0eb05e020fc2c/a0a64e92-89db-409a-9a73-caceb4fad596/v2/range/prot/cmFuZ2U9MjI0NzY4LTMwMDgxNw/avf/2c1f7e7e-706f-4480-9d96-fd8866d61ec4.mp4?pathsig=8c953e4f~BR8BKK7cGhY9fJgiuZM99Q93mjzOhJqiy298kVa8XFU&r=dXM%3D&range=224768-300817
+
+GET https://vod-adaptive-ak.vimeocdn.com/exp=1748754190~acl=%2Fa0a64e92-89db-409a-9a73-caceb4fad596%2F%2A~hmac=130a28effc947a5be3a4abdaf29d27095cd05f28ff0cc6a32ec0eb05e020fc2c/a0a64e92-89db-409a-9a73-caceb4fad596/v2/range/prot/cmFuZ2U9MTE3MDEzNTItMTIxNTc5Njk/avf/87b8b6b5-a6c3-4f4b-8383-f917a0c492a4.mp4?pathsig=8c953e4f~7VXtJ15ijbotnzD_zCpKTZAbA5FNQ3TLybfYuVnPlmc&r=dXMtd2VzdDE%3D&range=11701352-12157969
+
+GET https://vod-adaptive-ak.vimeocdn.com/
+exp=1748754190~acl=%2Fa0a64e92-89db-409a-9a73-caceb4fad596%2F%2A~hmac=130a28effc947a5be3a4abdaf29d27095cd05f28ff0cc6a32ec0eb05e020fc2c
+/a0a64e92-89db-409a-9a73-caceb4fad596
+/v2
+/range
+/prot
+/cmFuZ2U9MzM4MTA0MDAtMzU2NTU0NDg
+/avf
+/87b8b6b5-a6c3-4f4b-8383-f917a0c492a4.mp4
+?pathsig=8c953e4f~SitA7PG-ATdCLJ8M0Uf6ZP2rrkQGCmYTiX6KyThdIw0&r=dXMtd2VzdDE%3D
+&range=33810400-35655448
+
+
+https://vod-adaptive-ak.vimeocdn.com/
+exp=1748754711~acl=%2Fa0a64e92-89db-409a-9a73-caceb4fad596%2F%2A~hmac=74a660354e01b0c23403457edf5dc2c6cbf10ddf497bd6a6f65d65e00f17451d
+/a0a64e92-89db-409a-9a73-caceb4fad596/v2/range/prot/cmFuZ2U9MjQ3NC0xNjIwNDQ/avf/5d69a0fe-e87f-45b8-bf54-4194037d03ba.mp4?pathsig=8c953e4f~8JykyLT0qp5gQisirwcEFT160LXWqh9x9V-L1ObAeAc&r=dXMtZWFzdDE%3D&range=2474-162044
