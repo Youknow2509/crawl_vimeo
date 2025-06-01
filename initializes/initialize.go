@@ -4,6 +4,7 @@ import "github.com/youknow2509/crawl_vimeo/services"
 
 func Initialize() {
 	initializeOsSystem()	
+	initializeYtb()
 
 	url := services.GetPathM3U8("713179128")
 	if url == "" {
