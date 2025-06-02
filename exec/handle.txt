@@ -1,0 +1,25 @@
+/**
+	 * - Get list id videos m3u8 from file json, chapters in video
+	 * -> model.SectionVideo {
+	 * 		"course_id": "12345",
+	 * 		"section_id": "67890",
+	 * 		"section_path": "/data/section.json",
+	 * 		"m3u8_link": "https://example.com/video.m3u8",
+	 * 		"ytb_video_id": "",
+	 * 		"chapters": [models.Chapter]
+	 * 		"title": "Video Title",
+	 * 		"description": "Video Description"
+	 * }
+	 * -> Count number
+	 * 		create file error.json - list model.DataError
+	 * 		create file success.json - list model.SectionVideo
+	 * Loop:
+	 * 	- Get video from m3u8 link
+	 * 	- Upload video to YouTube
+	 *  - Save video id ytb, section id, course id to file json
+	 *  - if success, save to file success.json, delete file json have video id
+	 *  - if error, save to file error.json
+	 *  - time sleep random 5-10s
+	 *
+	 * - Show dashboard with number of success, error, total
+	 */
