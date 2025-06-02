@@ -1,13 +1,10 @@
 package utils
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
-	"regexp"
 	"runtime"
 	"strings"
-
 	"github.com/youknow2509/crawl_vimeo/consts"
 )
 
@@ -77,84 +74,6 @@ func GetM3U8PathFromPlayerConfig(config map[string]interface{}) (string, error) 
 	}
 	return captions, nil
 }
-
-// ExtractPlayerConfigFromHTML extracts the entire window.playerConfig object
-func ExtractPlayerConfigFromHTML(htmlContent string) (string, error) {
-    // Regex để tìm toàn bộ window.playerConfig
-    pattern := `<script>window\.playerConfig\s*=\s*(\{.*?\})</script>`
-    
-    re := regexp.MustCompile(pattern)
-    match := re.FindStringSubmatch(htmlContent)
-    
-    if len(match) >= 2 {
-        return match[1], nil // ← Trả về JSON string
-    }
-    
-    return "", fmt.Errorf("window.playerConfig not found")
-}
-
-// ParsePlayerConfig parses JSON string to map for easier access
-func ParsePlayerConfig(jsonString string) (map[string]interface{}, error) {
-    var config map[string]interface{}
-    err := json.Unmarshal([]byte(jsonString), &config)
-    if err != nil {
-        return nil, fmt.Errorf("failed to parse JSON: %v", err)
-    }
-    return config, nil
-}
-
-// ExtractAuthFromPlayerConfig extracts auth token from parsed config
-func ExtractAuthFromPlayerConfig(config map[string]interface{}) (map[string]string, error) {
-    // Navigate to the URL
-    request, ok := config["request"].(map[string]interface{})
-    if !ok {
-        return nil, fmt.Errorf("request not found")
-    }
-    
-    files, ok := request["files"].(map[string]interface{})
-    if !ok {
-        return nil, fmt.Errorf("files not found")
-    }
-    
-    dash, ok := files["dash"].(map[string]interface{})
-    if !ok {
-        return nil, fmt.Errorf("dash not found")
-    }
-    
-    cdns, ok := dash["cdns"].(map[string]interface{})
-    if !ok {
-        return nil, fmt.Errorf("cdns not found")
-    }
-    
-    akfire, ok := cdns["akfire_interconnect_quic"].(map[string]interface{})
-    if !ok {
-        return nil, fmt.Errorf("akfire_interconnect_quic not found")
-    }
-    
-    url, ok := akfire["url"].(string)
-    if !ok {
-        return nil, fmt.Errorf("url not found")
-    }
-    
-    // Extract auth token từ URL
-    pattern := `exp=(\d+)~acl=([^~]+)~hmac=([a-f0-9]+)/([a-f0-9\-]+)`
-    re := regexp.MustCompile(pattern)
-    match := re.FindStringSubmatch(url)
-    
-    if len(match) >= 5 {
-        return map[string]string{
-            "exp":       match[1],
-            "acl":       match[2],
-            "hmac":      match[3],
-            "video_id":  match[4],
-            "full_auth": fmt.Sprintf("exp=%s~acl=%s~hmac=%s", match[1], match[2], match[3]),
-            "full_url":  url,
-        }, nil
-    }
-    
-    return nil, fmt.Errorf("auth token not found in URL")
-}
-
 
 // containsIgnoreCase kiểm tra chứa không phân biệt hoa thường
 func ContainsIgnoreCase(s, substr string) bool {

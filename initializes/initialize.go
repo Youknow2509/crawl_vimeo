@@ -50,11 +50,11 @@ func Initialize() {
 	// fmt.Printf("Đã upload video thành công! Video ID: %s\n", response.Id)
 	// fmt.Printf("Link: https://www.youtube.com/watch?v=%s\n", response.Id)
 
-	err = global.OS_EXECUTOR.DeleteFile("videos/a.txt")
-	if err != nil {
-		log.Fatalln(err)
-		return
-	}
+	// err = global.OS_EXECUTOR.DeleteFile("videos/a.txt")
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// 	return
+	// }
 
 	log.Println("Initialization completed successfully")
 }
