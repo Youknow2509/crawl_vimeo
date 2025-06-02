@@ -33,22 +33,10 @@ type DataFile struct {
 		Element    struct {
 			ID              int           `json:"id"`
 			Name            string        `json:"name"`
-			Type            int           `json:"type"`
-			SlowSound       bool          `json:"slow_sound"`
-			DefaultProvider string        `json:"default_provider"`
 			Content         string        `json:"content"`
-			MuseVideoID     *int          `json:"muse_video_id"`
 			YoutubeURL      *string       `json:"youtube_url"`
 			MediaPath       string        `json:"media_path"`
 			TimestampVideo  []Chapter     `json:"timestamp_video"`
-			PlaytimeString  *string       `json:"playtime_string"`
-			Photos          []interface{} `json:"photos"`
-			VideoSource     struct {
-				WebURL    string `json:"web_url"`
-				URL       string `json:"url"`
-				Extension string `json:"extension"`
-			} `json:"video_source"`
-			Flashcards []interface{} `json:"flashcards"`
 		} `json:"element"`
 	} `json:"data"`
 }
