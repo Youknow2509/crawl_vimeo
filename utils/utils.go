@@ -3,11 +3,42 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
+	"os"
 	"regexp"
+	"runtime"
 	"strings"
 
 	"github.com/youknow2509/crawl_vimeo/consts"
 )
+
+// GetCurrentOS detects the current operating system
+func GetCurrentOS() int {
+	switch runtime.GOOS {
+	case "windows":
+		return consts.OS_WINDOWS
+	case "darwin":
+		return consts.OS_MACOS
+	case "linux":
+		// Check if it's Ubuntu
+		if isUbuntu() {
+			return consts.OS_UBUNTU
+		}
+		return consts.OS_LINUX
+	default:
+		return consts.OS_LINUX // Default to Linux
+	}
+}
+
+// isUbuntu checks if the current Linux distribution is Ubuntu
+func isUbuntu() bool {
+	if _, err := os.Stat("/etc/lsb-release"); err == nil {
+		content, err := os.ReadFile("/etc/lsb-release")
+		if err == nil {
+			return strings.Contains(string(content), "Ubuntu")
+		}
+	}
+	return false
+}
 
 // GetOSName returns the OS name as string
 func GetOSName(osType int) string {

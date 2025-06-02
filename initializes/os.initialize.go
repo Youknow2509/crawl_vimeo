@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/youknow2509/crawl_vimeo/global"
+	"github.com/youknow2509/crawl_vimeo/services/create"
 	"github.com/youknow2509/crawl_vimeo/utils"
 )
 
@@ -16,19 +17,16 @@ func initializeOsSystem() {
     // Set OS type in global
     global.OS_SYSTEM = osType
     
-    // Initialize global OS executor
-    utils.InitOSExecutor(osType)
-
-	// set global OS exec system
-	global.OS_EXECUTOR = utils.GlobalOSExecutor
+    // Initialize global OS executor and set global OS exec system
+	global.OS_EXECUTOR = create.FactoryCreateOsExce(osType)
 
     // Log the detected OS
-    log.Printf("OS System initialized: %s (Type: %d)", utils.GlobalOSExecutor.GetOSName(), osType)
+    log.Printf("OS System initialized: %s (Type: %d)", utils.GetOSName(osType), osType)
 }
 
 // ValidateOSInitialization validates that OS system is properly initialized
 func ValidateOSInitialization() error {
-    if utils.GlobalOSExecutor == nil {
+    if global.OS_EXECUTOR == nil {
         return fmt.Errorf("global OS executor is not initialized")
     }
     
@@ -36,6 +34,6 @@ func ValidateOSInitialization() error {
         return fmt.Errorf("global OS_SYSTEM is not properly set")
     }
     
-    log.Printf("OS System validation passed: %s", utils.GlobalOSExecutor.GetOSName())
+    log.Printf("OS System validation passed: %s", utils.GetOSName(global.OS_SYSTEM))
     return nil
 }

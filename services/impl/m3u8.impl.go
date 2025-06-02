@@ -8,7 +8,7 @@ import (
 
 // struct
 type M3U8Service struct {
-	osExec *utils.OSExecutor
+	osExec services.IOSExecutor
 }
 
 // #############################################
@@ -59,7 +59,7 @@ func (m *M3U8Service) M3U8ToMP4(inputUrl string, outPath string) error {
 // #############################################
 
 // implementation of IM3u8 interface
-func NewM3u8Service(osExec *utils.OSExecutor) services.IM3u8 {
+func NewM3u8Service(osExec services.IOSExecutor) services.IM3u8 {
 	return &M3U8Service{
 		osExec: osExec,
 	}
