@@ -14,9 +14,9 @@ func Initialize() {
 	}
 
 	// Initialize Google services
-	// if err := initializeGoogleServices(); err != nil {
-	// 	log.Fatalf("Failed to initialize Google services: %v", err)
-	// }
+	if err := initializeGoogleServices(); err != nil {
+		log.Fatalf("Failed to initialize Google services: %v", err)
+	}
 
 	// Initialize M3U8 service
 	initializeM3u8()

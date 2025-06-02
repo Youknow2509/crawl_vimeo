@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"strings"
 
-	"github.com/youknow2509/crawl_vimeo/global"
 	"github.com/youknow2509/crawl_vimeo/models"
 	"github.com/youknow2509/crawl_vimeo/utils"
 )
@@ -21,22 +21,18 @@ func parseJSONFile(filePath string) (models.SectionVideo, error) {
 	if err := json.Unmarshal(data, &dataFile); err != nil {
 		return models.SectionVideo{}, fmt.Errorf("failed to unmarshal JSON: %w", err)
 	}
-	// 
-	contentUrl := dataFile.Data.Element.Content
-	if contentUrl == "" {
-		return models.SectionVideo{}, fmt.Errorf("content URL is empty in file: %s", filePath)
+	m3u8Link := strings.ReplaceAll(dataFile.Data.Element.VideoSource.Url, "api/video-encrypt-m3u8", "video")
+	if m3u8Link == "" {
+		return models.SectionVideo{}, fmt.Errorf("m3u8 link is empty")
 	}
-	// extract id video from content URL
-	videoID := utils.ExtractVideoIDVimeoFromURL(contentUrl)
-
-	// Extract M3U8 link from video source
-	m3u8Link, err := global.M3U8_SERVICE.GetPathM3U8(videoID)
-	if err != nil {
-		return models.SectionVideo{}, fmt.Errorf("failed to get M3U8 link: %w", err)
-	}
-
+	
 	// Create description with chapters
 	description := utils.CreateDescriptionWithChapters(dataFile.Data.Element.TimestampVideo)
+	// Link tài liệ
+	if dataFile.Data.SubElement.MediaPath != "" {
+		description += fmt.Sprintf("Tài liệu: %s\n \n", dataFile.Data.SubElement.MediaPath)
+		fmt.Println("Link tài liệu:", dataFile.Data.SubElement.MediaPath)
+	}
 
 	sectionVideo := models.SectionVideo{
 		CourseID:    dataFile.Data.CourseID,

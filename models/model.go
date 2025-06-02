@@ -23,20 +23,23 @@ type DataError struct {
 // structure for JSON data files
 type DataFile struct {
 	Data struct {
-		ID         int    `json:"id"`
-		SkillID    int    `json:"skill_id"`
-		Title      string `json:"title"`
-		CourseID   int    `json:"course_id"`
-		Compulsory bool   `json:"compulsory"`
-		UnitTitle  string `json:"unit_title"`
-		Content    string `json:"content"`
-		Element    struct {
-			ID              int           `json:"id"`
-			Name            string        `json:"name"`
-			Content         string        `json:"content"`
-			YoutubeURL      *string       `json:"youtube_url"`
-			MediaPath       string        `json:"media_path"`
-			TimestampVideo  []Chapter     `json:"timestamp_video"`
+		ID        int    `json:"id"`
+		Title     string `json:"title"`
+		CourseID  int    `json:"course_id"`
+		UnitTitle string `json:"unit_title"`
+		Content   string `json:"content"`
+		Element   struct {
+			ID             int       `json:"id"`
+			Name           string    `json:"name"`
+			TimestampVideo []Chapter `json:"timestamp_video"`
+			VideoSource    struct {
+				WebUrl    string `json:"web_url"`
+				Url       string `json:"url"`
+				Extension string `json:"extension"`
+			} `json:"video_source"`
 		} `json:"element"`
+		SubElement struct {
+			MediaPath string `json:"media_path"`
+		} `json:"sub_element"`
 	} `json:"data"`
 }
