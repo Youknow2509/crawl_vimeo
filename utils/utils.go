@@ -4,11 +4,26 @@ import (
 	"encoding/json"
 	"fmt"
 	"regexp"
-	"runtime"
 	"strings"
 
 	"github.com/youknow2509/crawl_vimeo/consts"
 )
+
+// GetOSName returns the OS name as string
+func GetOSName(osType int) string {
+	switch osType {
+	case consts.OS_WINDOWS:
+		return "Windows"
+	case consts.OS_MACOS:
+		return "macOS"
+	case consts.OS_LINUX:
+		return "Linux"
+	case consts.OS_UBUNTU:
+		return "Ubuntu"
+	default:
+		return "Unknown"
+	}
+}
 
 // get url m3u8 in playerConfig
 func GetM3U8PathFromPlayerConfig(config map[string]interface{}) (string, error) {
@@ -109,30 +124,8 @@ func ExtractAuthFromPlayerConfig(config map[string]interface{}) (map[string]stri
     return nil, fmt.Errorf("auth token not found in URL")
 }
 
-// GetOSSystem trả về hằng số OS theo hệ điều hành hiện tại
-func GetOSSystem() int {
-	switch runtime.GOOS {
-	case "darwin":
-		return consts.OS_MACOS
-	case "linux":
-		// Nếu muốn phân biệt Ubuntu, cần kiểm tra file /etc/os-release
-		if isUbuntu() {
-			return consts.OS_UBUNTU
-		}
-		return consts.OS_LINUX
-	case "windows":
-		return consts.OS_WINDOWS
-	default:
-		return -1 // Không xác định
-	}
-}
-
-// containsUbuntu kiểm tra chuỗi có chứa "ubuntu" không
-func containsUbuntu(s string) bool {
-	return (len(s) > 0) && (containsIgnoreCase(s, "ubuntu"))
-}
 
 // containsIgnoreCase kiểm tra chứa không phân biệt hoa thường
-func containsIgnoreCase(s, substr string) bool {
+func ContainsIgnoreCase(s, substr string) bool {
 	return strings.Contains(strings.ToLower(s), strings.ToLower(substr))
 }
