@@ -1,8 +1,12 @@
 package initializes
 
 import (
+	"context"
+	"fmt"
 	"log"
 
+	"github.com/youknow2509/crawl_vimeo/consts"
+	"github.com/youknow2509/crawl_vimeo/global"
 	"github.com/youknow2509/crawl_vimeo/services"
 )
 
@@ -23,6 +27,19 @@ func Initialize() {
 	// if err != nil {
 	// 	panic(err)
 	// }
+
+	// test upload video
+	ctx := context.Background()
+	videoPath := "videos/video_test.mp4"
+	title := "test upload api"
+	description := "description test upload api"
+	privacyStatus := consts.VIDEO_STATUS_PRIVATE
+	response, err := global.YTB_SERVICE_ACTION.UploadVideoBase(ctx, title, description, privacyStatus, videoPath)
+	if err != nil {
+		log.Fatalf("Failed to upload video: %v", err)
+	}
+	fmt.Printf("Đã upload video thành công! Video ID: %s\n", response.Id)
+	fmt.Printf("Link: https://www.youtube.com/watch?v=%s\n", response.Id)
 
 	log.Println("Initialization completed successfully")
 }

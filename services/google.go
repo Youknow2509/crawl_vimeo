@@ -33,8 +33,7 @@ type (
         GetChannel(ctx context.Context, part []string, mine bool) (*youtube.ChannelListResponse, error)
         // Video operations
         ListVideos(ctx context.Context, part []string, channelId string, maxResults int64) (*youtube.SearchListResponse, error)
-        UploadVideo(ctx context.Context, title, description, filename string) (*youtube.Video, error)
-        UpdateVideo(ctx context.Context, videoId, title, description string) (*youtube.Video, error)
+        UploadVideoBase(ctx context.Context, title, description, privacyStatus, videoPath string) (*youtube.Video, error)
         DeleteVideo(ctx context.Context, videoId string) error
         // Playlist operations
         CreatePlaylist(ctx context.Context, title, description string) (*youtube.Playlist, error)

@@ -5,6 +5,13 @@ const (
 	YTB_USER_TIME_EXPIRED_AUTH_REDIRECT = 10 // 10 minutes
 )
 
+// privacy status video
+const (
+	VIDEO_STATUS_PUBLIC   = "public"
+	VIDEO_STATUS_PRIVATE  = "private"
+	VIDEO_STATUS_UNLISTED = "unlisted"
+)
+
 // scope use
 const (
 	YTB_SCOPE_MANAGET_YOUTUBE_ACCOUNT      = "https://www.googleapis.com/auth/youtube"
