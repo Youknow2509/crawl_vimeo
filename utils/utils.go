@@ -3,7 +3,6 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
-	"os"
 	"regexp"
 	"runtime"
 	"strings"
@@ -126,20 +125,6 @@ func GetOSSystem() int {
 	default:
 		return -1 // Không xác định
 	}
-}
-
-// isUbuntu kiểm tra xem hệ điều hành có phải Ubuntu không
-func isUbuntu() bool {
-	// Đơn giản nhất là kiểm tra file /etc/os-release (chỉ trên Linux)
-	// Nếu không phải Linux, trả về false
-	if runtime.GOOS != "linux" {
-		return false
-	}
-	data, err := os.ReadFile("/etc/os-release")
-	if err != nil {
-		return false
-	}
-	return containsUbuntu(string(data))
 }
 
 // containsUbuntu kiểm tra chuỗi có chứa "ubuntu" không

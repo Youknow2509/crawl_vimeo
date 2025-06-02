@@ -1,4 +1,5 @@
-package services
+package utils
+
 import (
 	"net/http"
 	"fmt"
