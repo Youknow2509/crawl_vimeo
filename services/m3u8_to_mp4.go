@@ -6,7 +6,6 @@ import (
 	"path/filepath"
 
 	"github.com/youknow2509/crawl_vimeo/consts"
-	"github.com/youknow2509/crawl_vimeo/global"
 )
 
 /**
@@ -15,10 +14,10 @@ import (
  *	@param outPath string - The output path for the converted MP4 file
  *	@return error - Returns an error if the conversion fails
  */
-func M3U8ToMP4(inputUrl string, outPath string) error {
+func M3U8ToMP4(inputUrl string, outPath string, osSystem int) error {
 	fmt.Printf("Converting M3U8 to MP4: %s -> %s\n", inputUrl, outPath)
 	// create directory if not exists
-	err := createDirIfNotExists(outPath)
+	err := createDirIfNotExists(outPath, osSystem)
 	if err != nil {
 		return fmt.Errorf("failed to create directory: %w", err)
 	}
@@ -34,10 +33,10 @@ func M3U8ToMP4(inputUrl string, outPath string) error {
 }
 
 // create dir to file if not exists
-func createDirIfNotExists(pathFile string) error {
+func createDirIfNotExists(pathFile string, osSystem int) error {
 	var cmd *exec.Cmd
 	dirPath := filepath.Dir(pathFile)
-	if global.OS_SYSTEM == consts.OS_WINDOWS {
+	if osSystem == consts.OS_WINDOWS {
 		cmd = exec.Command("cmd", "/C", "mkdir", dirPath)
 	} else {
 		cmd = exec.Command("mkdir", "-p", dirPath)
