@@ -51,7 +51,7 @@ func Execute() {
 		return
 	}
 	// 
-	fmt.Println("Loaded", len(sectionVideos), "videos from data.json") // 469
+	fmt.Println("Loaded", len(sectionVideos), "videos from data.json")
 	ctx := context.Background()
 	errorList := make([]models.DataError, 0)
 	successList := make([]models.SectionVideo, 0)
@@ -85,12 +85,12 @@ func Execute() {
 		time.Sleep(sleepDuration)
 
 		// Show current dashboard
-		showDashboard(len(successList), len(errorList), 469, i)
+		showDashboard(len(successList), len(errorList), len(sectionVideos), i)
 	}
 
 	// Final dashboard
 	log.Println("Processing completed!")
-	showFinalDashboard(len(successList), len(errorList), 469)
+	showFinalDashboard(len(successList), len(errorList), len(sectionVideos))
 }
 
 // 

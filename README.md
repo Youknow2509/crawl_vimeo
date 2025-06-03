@@ -10,6 +10,7 @@
     - *Linux*: `sudo apt install ffmpeg`.
     - *Windows*: `winget install --id=Gyan.FFmpeg  -e` - Note path to `ffmpeg.exe` in `PATH` environment variable and ...
 - **Enable Youtube Api**:
+    - You need to create a channel on Youtube.
     - Get `client_secret.json` and save to `secret/client_secret.json`.
     - Scope set:
       - "https://www.googleapis.com/auth/youtube"

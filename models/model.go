@@ -12,6 +12,18 @@ type SectionVideo struct {
 	Description string    `json:"description"`
 }
 
+type SectionVideo2 struct {
+	CourseID    int       `json:"course_id"`
+	SectionID   int       `json:"section_id"`
+	SectionPath string    `json:"section_path"`
+	M3u8Link    string    `json:"m3u8_link"`
+	YtbVideoID  string    `json:"ytb_video_id"`
+	Path        string    `json:"path"`
+	Chapters    []Chapter `json:"chapters"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
+}
+
 // data error
 type DataError struct {
 	CourseID    int    `json:"course_id"`
